@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- <div class="flex flex-column w-75 justify-content-center align-items-center" style="background-color: #f2f2f2; padding: 1rem 2rem; margin: auto; margin-top:100px"> -->
+        <h3>Badges</h3>
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Badge Name</th>
+                    <th scope="col">Badge Description</th>
+                    <th scope="col">Badge Image</th>
+                    <th scope="col">Eligible Students</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for badge in badges %}
+                    <tr>
+                        <td>{{ badge['id']}}</td>
+                        <td>{{ badge['badgeName']}}</td>
+                        <td>{{ badge['badgeDescription']}}</td>
+                        <td>
+                            <a href="/{{badge['badgeImage']}}" target="_blank" style="text-decoration: none; color:inherit">{{ badge['badgeImage'] }}</a>
+                        </td>
+                        <td>
+                            <ul style="list-style: none; padding-left: 0px;">
+                                {% for student in badge['eligibleStudents'].split(',') %}
+                                    <li>{{ student }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td><button class="btn btn-success"><a href="/badge/{{ badge.id }}/update" style="text-decoration: none; color: inherit">Update</a></button></td>
+                        <td><button class="btn btn-danger"><a href="/badge/{{ badge.id }}/delete" style="text-decoration: none; color: inherit">Delete</a></button></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    <!-- </div> -->
+{% endblock%}
