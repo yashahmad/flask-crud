@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS badges;
+
+CREATE TABLE badges (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    badgeName TEXT NOT NULL,
+    badgeDescription TEXT NOT NULL,
+    badgeImage BLOB NOT NULL,
+    eligibleStudents TEXT NOT NULL,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
