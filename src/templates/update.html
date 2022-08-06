@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="w-50 justify-content-center align-items-center" style="background-color: #f2f2f2; padding: 1rem 2rem; margin: auto;">
+    <h5 class="justify-content-center d-flex mb-3">Update Badges</h5>
+    <form method="POST" action="{{ url_for('updateBadge',id=badge.id) }}" enctype="multipart/form-data">
+            <div class="mb-3 row">
+                <label for="badgeName" class="col-sm-3 col-form-label">Badge name</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="badgeName" name="badgeName" placeholder="Achievers" value="{{ badge.badgeName }}"/>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="badgeDescription" class="col-sm-3 col-form-label">Badge description</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="badgeDescription" name="badgeDescription" placeholder="ACM ICPC - 2022" value="{{ badge.badgeDescription }}"/>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="badgeImage" class="col-sm-3 col-form-label">Upload badge</label>
+                <div class="col-sm-9">
+                    <input type="file" class="form-control" id="badgeImage" name="badgeImage" accept="image/png" /> <img src="/{{ badge.badgeImage }}" height="50px" width="50px"/>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="eligibleStudents" class="col-sm-3 col-form-label">Eligible students</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="eligibleStudents" name="eligibleStudents" placeholder="[john@example.com,george@example.com]" value="{{ badge.eligibleStudents }}" />
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <button class="w-25 btn btn-primary form-control" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
