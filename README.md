@@ -6,6 +6,7 @@
 - Update badge details 
 - Delete badge details
 - Verify whether user is authorized for the badge
+- Upload file locally / server
  
 > Technology Used:
 - Frontend: Bootstrap, Jinja template
